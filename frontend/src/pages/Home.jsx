@@ -50,7 +50,7 @@ export default function Home() {
                 }
                 {
                     profiles.length>0 && filteredProfiles.length == 0 && 
-                    <div className='text-white text-xl font-semibold'>
+                    <div className='text-white text-lg md:text-xl font-semibold text-center'>
                         <p>No profiles match your search. Try again!</p>
                     </div>
                 }
