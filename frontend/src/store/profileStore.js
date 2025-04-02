@@ -10,7 +10,7 @@ export const profileStore = create((set, get) => ({
     addProfile: async ({ name, email, photo, description, address, contact, interests}) => {
         set({ loading: true });
         try {
-            const res = await axios.post("http://localhost:5000/api/add", { name, email, photo, description, address, contact, interests });
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/add`, { name, email, photo, description, address, contact, interests });
             set({ loading: false });
             //Refresh Existing Data
             //Add Toast
@@ -23,7 +23,7 @@ export const profileStore = create((set, get) => ({
     editProfile: async ({ name, email, photo, description, address, contact, interests}) => {
         set({ loading: true });
         try {
-            const res = await axios.post("http://localhost:5000/api/edit", { name, email, photo, description, address, contact, interests });
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/edit`, { name, email, photo, description, address, contact, interests });
             set({ loading: false });
             //Refresh Existing Data
             //Add Toast
@@ -37,7 +37,7 @@ export const profileStore = create((set, get) => ({
         set({ loading: true });
         await new Promise((resolve) => setTimeout(resolve, 1000));
         try {
-            const res = await axios.get("http://localhost:5000/api/get",);
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/get`,);
             
             set({ loading: false });
             const data = res.data.data;
@@ -53,7 +53,7 @@ export const profileStore = create((set, get) => ({
         set({ loading: true });
         try {
             console.log("Calling API")
-            const res = await axios.post("http://localhost:5000/api/delete",{email});
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/delete`,{email});
             console.log("Called API Successfully")
             set({isDataFetched:false})
             set({ loading: false });
